@@ -49,7 +49,7 @@ func main() {
 
 
 	qReceiveNurse, err := ch.QueueDeclare(
-		"mytpn.nurse.receive", // name
+		"test", // name
 		true,   // durable
 		false,   // delete when unused
 		false,   // exclusive
@@ -58,7 +58,7 @@ func main() {
 	)
 	FailOnError(err, "Failed to register a consumer")
 	_, err = ch.QueueDeclare(
-		"mytpn.nurse.node", // name
+		"test", // name
 		true,               // durable
 		false,              // delete when unused
 		false,              // exclusive
@@ -70,7 +70,7 @@ func main() {
 
 	nurseReceive, err := ch.Consume(
 		qReceiveNurse.Name, // queue
-		"mytpn.nurse",     // consumer
+		"test",     // consumer
 		false,   // auto-ack
 		false,  // exclusive
 		false,  // no-local
